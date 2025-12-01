@@ -266,9 +266,60 @@ Kết quả:
 
 📸 **Ảnh minh họa QR code tạo từ ví dụ:**
 
-![VietQR sample](examples/vietqr_code.png)
+- QR code cơ bản (không icon):
 
-### Example 4: Crawl danh sách ngân hàng từ API VietQR
+  ![VietQR sample](examples/vietqr_code.png)
+
+### Example 4: Tạo VietQR code với icon ở giữa
+
+Xem file [`examples/qr_with_icon.py`](examples/qr_with_icon.py):
+
+```python
+import base64
+from pathlib import Path
+
+from vnqr import generate_vietqr_string, generate_qr_image_with_icon
+
+
+def main():
+    vietqr_string = generate_vietqr_string(
+        bank_bin="970425",
+        bank_account="123456789",
+        total_amount=100000,
+        content="Thanh toan don hang",
+    )
+
+    icon_path = "vn_flag.png"  # hoặc logo thương hiệu của bạn
+
+    qr_image_base64 = generate_qr_image_with_icon(
+        qr_string=vietqr_string,
+        icon_path=icon_path,
+        icon_size_ratio=0.15,
+    )
+
+    with open("vietqr_with_icon.png", "wb") as f:
+        f.write(base64.b64decode(qr_image_base64))
+```
+
+Chạy ví dụ:
+
+```bash
+python examples/qr_with_icon.py
+```
+
+Kết quả:
+
+- Tạo file `vietqr_with_icon.png` trong thư mục `examples/`
+- QR code có **icon/logo ở giữa**, vẫn đảm bảo khả năng quét nhờ sử dụng error correction level cao
+- Script tự tạo một icon demo (`vn_flag.png`) nếu chưa có sẵn
+
+📸 **Ảnh minh họa QR code tạo từ ví dụ:**
+
+- QR code có icon ở giữa:
+
+  ![VietQR sample with icon](examples/vietqr_with_icon.png)
+
+### Example 5: Crawl danh sách ngân hàng từ API VietQR
 
 Xem file [`examples/crawl_banks.py`](examples/crawl_banks.py):
 
