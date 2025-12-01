@@ -1,7 +1,7 @@
 [project]
 name = "vnqr"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.1.1"
+description = "Thư viện Python để tạo mã QR thanh toán VietQR theo tiêu chuẩn NAPAS, hỗ trợ tạo hình ảnh QR code và thêm icon tùy chỉnh"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
