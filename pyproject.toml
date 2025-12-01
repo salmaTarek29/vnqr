@@ -1,0 +1,81 @@
+[project]
+name = "vnqr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Do Quoc Vuong", email = "vuongtlt13@gmail.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ['vietqr', 'qr-code', 'bank', 'vietnam', 'Viet Nam', 'qr']
+dependencies = [
+    "crcmod>=1.7",
+    "pypng>=0.20220715.0",
+    "qrcode>=8.2",
+    "requests>=2.32.5",
+    "pillow>=10.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/vuongtlt13/vietqr"
+Issues = "https://github.com/vuongtlt13/vietqr/issues"
+License = "https://opensource.org/licenses/MIT"
+
+[build-system]
+requires = ["uv_build >= 0.9.9, <0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=25.11.0",
+    "coverage>=7.12.0",
+    "isort>=7.0.0",
+    "mypy>=1.18.2",
+    "pre-commit>=4.5.0",
+    "pytest>=9.0.1",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-vv --strict-config --strict-markers"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+branch = true
+source = ["vnqr"]
+omit = [
+    "src/tests/*",
+    "src/**/__init__.py",
+    "src/examples/*",
+    "src/vnqr/tools/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 0
+exclude_lines = []
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+exclude = '^(?!src/vnqr/).*'
+
+python_version = "3.10"
+ignore_missing_imports = true
+disallow_untyped_calls = false
+disable_error_code = ["no-untyped-def"]
+strict = true
