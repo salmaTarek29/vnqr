@@ -46,7 +46,7 @@ class Element:
         except:
             return element_id, None
 
-    def __eq__(self, other: "Element"):
+    def __eq__(self, other: "Element"):  # type: ignore [override]
         return (
             isinstance(self, other.__class__)
             and (self.element_id == other.element_id)
