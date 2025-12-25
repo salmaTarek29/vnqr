@@ -1,0 +1,35 @@
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+html{
+    font-family: lato;;
+    font-weight: 300;
+}
+
+.navbar{
+
+    opacity: 0.6;
+    border-bottom: solid 5px burlywood;
+}
+
+header{
+    min-height: 100vh;
+    
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7))
+     ,url(../images/pexels-emma-bauso-2253832.jpg);
+
+   background-position: center;
+   background-size: cover;
+ }
+ 
+ .footer{
+
+background-color: #333;
+ }
+ 
